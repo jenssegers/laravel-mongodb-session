@@ -17,7 +17,7 @@ class SessionManager extends \Illuminate\Session\SessionManager {
 
 		$database = (string) $connection->getMongoDB();
 
-		return $this->buildSession(new MongoDbSessionHandler($connection->getMongoClient(), $this->getMongoDBOptions($database, $collection)));
+		return new MongoDbSessionHandler($connection->getMongoClient(), $this->getMongoDBOptions($database, $collection));
 	}
 
 	/**

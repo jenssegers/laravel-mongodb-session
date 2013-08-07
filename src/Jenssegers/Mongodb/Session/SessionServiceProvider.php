@@ -14,7 +14,7 @@ class SessionServiceProvider extends ServiceProvider {
     	$this->app['session.manager']->extend('mongodb', function($app)
         {
         	$manager = new SessionManager($app);
-        	$manager->driver('mongodb');
+        	return $manager->driver('mongodb');
         });
     }
 
