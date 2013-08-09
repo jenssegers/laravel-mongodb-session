@@ -2,7 +2,7 @@
 
 use Symfony\Component\HttpFoundation\Session\Storage\Handler\MongoDbSessionHandler;
 
-class SessionManager extends \Illuminate\Session\SessionManager {
+class SessionManager extends \Illuminate\Support\Manager {
 
 	/**
 	 * Create an instance of the database session driver.
