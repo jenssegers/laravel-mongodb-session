@@ -29,7 +29,7 @@ class SessionManager extends \Illuminate\Support\Manager {
 	{
 		$connection = $this->app['config']['session.connection'];
 
-		return $this->app['mongodb']->connection($connection);
+		return $this->app['db']->connection($connection);
 	}
 
 	/**
