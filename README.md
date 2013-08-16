@@ -21,3 +21,7 @@ Add the session service provider in `app/config/app.php`:
 Change the session driver in `app/config/session.php` to mongodb:
 
     'driver' => 'mongodb',
+
+*Optional*: change the connection to a connection using the mongodb driver from `app/config/database.php`:
+
+	'connection' => 'mongodb',
