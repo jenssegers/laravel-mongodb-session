@@ -11,7 +11,7 @@ class SessionServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app['session.manager']->extend('mongodb', function($app)
+        $this->app['session']->extend('mongodb', function($app)
         {
             $manager = new SessionManager($app);
             return $manager->driver('mongodb');
