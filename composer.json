@@ -18,6 +18,5 @@
         "psr-0": {
             "Jenssegers\\Mongodb\\Session": "src/"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
