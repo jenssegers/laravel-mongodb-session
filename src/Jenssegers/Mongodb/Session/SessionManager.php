@@ -34,9 +34,9 @@ class SessionManager extends \Illuminate\Support\Manager {
         if (is_null($connection))
         {
             $default = $this->app['db']->getDefaultConnection();
-            
+
             $connections = $this->app['config']['database.connections'];
-            
+
             // If the default database driver is not mongodb, we will loop the available
             // connections and select the first one using the mongodb driver.
             if ($connections[$default]['driver'] != 'mongodb')
@@ -64,6 +64,16 @@ class SessionManager extends \Illuminate\Support\Manager {
     protected function getMongoDBOptions($database, $collection)
     {
         return array('database' => $database, 'collection' => $collection, 'id_field' => '_id', 'data_field' => 'payload', 'time_field' => 'last_activity');
+    }
+
+    /**
+     * Get the default session driver name.
+     *
+     * @return string
+     */
+    public function getDefaultDriver()
+    {
+        return 'mongodb';
     }
 
 }
