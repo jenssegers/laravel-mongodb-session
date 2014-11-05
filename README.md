@@ -8,13 +8,9 @@ Installation
 
 Make sure you have [jenssegers\mongodb](https://github.com/jenssegers/Laravel-MongoDB) installed before you continue.
 
-Add the package to your `composer.json` and run `composer update`.
+Install using composer:
 
-    {
-        "require": {
-            "jenssegers/mongodb-session": "*"
-        }
-    }
+    composer require jenssegers/mongodb-session
 
 Add the session service provider in `app/config/app.php`:
 
