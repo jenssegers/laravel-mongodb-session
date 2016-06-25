@@ -1,7 +1,7 @@
 Laravel MongoDB Session
 =======================
 
-A MongoDB session driver for Laravel 4, inspired by LMongo. For more information about Sessions, check http://laravel.com/docs/eloquent.
+A MongoDB session driver for Laravel 4 and Laravel 5, inspired by LMongo. For more information about Sessions, check http://laravel.com/docs/eloquent.
 
 Installation
 ------------

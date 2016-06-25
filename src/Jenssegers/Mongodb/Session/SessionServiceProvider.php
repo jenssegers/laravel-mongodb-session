@@ -2,7 +2,8 @@
 
 use Illuminate\Support\ServiceProvider;
 
-class SessionServiceProvider extends ServiceProvider {
+class SessionServiceProvider extends ServiceProvider
+{
 
     /**
      * Register the service provider.
@@ -11,15 +12,12 @@ class SessionServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        $this->app->resolving('session', function($session)
-        {
-            $session->extend('mongodb', function($app)
-            {
+        $this->app->resolving('session', function ($session) {
+            $session->extend('mongodb', function ($app) {
                 $manager = new SessionManager($app);
 
                 return $manager->driver('mongodb');
             });
         });
     }
-
 }
