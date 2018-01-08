@@ -2,8 +2,8 @@
 
 use Symfony\Component\HttpFoundation\Session\Storage\Handler\MongoDbSessionHandler;
 
-class SessionManager extends \Illuminate\Support\Manager {
-
+class SessionManager extends \Illuminate\Support\Manager
+{
     /**
      * Create an instance of the database session driver.
      *
@@ -17,7 +17,11 @@ class SessionManager extends \Illuminate\Support\Manager {
 
         $database = (string) $connection->getMongoDB();
 
-        return new MongoDbSessionHandler($connection->getMongoClient(), $this->getMongoDBOptions($database, $collection));
+        $handler = new MongoDbSessionHandler($connection->getMongoClient(), $this->getMongoDBOptions($database, $collection));
+
+        $handler->open(null, 'mongodb');
+
+        return $handler;
     }
 
     /**
@@ -31,21 +35,17 @@ class SessionManager extends \Illuminate\Support\Manager {
 
         // The default connection may still be mysql, we need to verify if this connection
         // is using the mongodb driver.
-        if (is_null($connection))
-        {
+        if (is_null($connection)) {
             $default = $this->app['db']->getDefaultConnection();
 
             $connections = $this->app['config']['database.connections'];
 
             // If the default database driver is not mongodb, we will loop the available
             // connections and select the first one using the mongodb driver.
-            if ($connections[$default]['driver'] != 'mongodb')
-            {
-                foreach ($connections as $name => $candidate)
-                {
+            if ($connections[$default]['driver'] != 'mongodb') {
+                foreach ($connections as $name => $candidate) {
                     // Check the driver
-                    if ($candidate['driver'] == 'mongodb')
-                    {
+                    if ($candidate['driver'] == 'mongodb') {
                         $connection = $name;
                         break;
                     }
@@ -63,7 +63,7 @@ class SessionManager extends \Illuminate\Support\Manager {
      */
     protected function getMongoDBOptions($database, $collection)
     {
-        return array('database' => $database, 'collection' => $collection, 'id_field' => '_id', 'data_field' => 'payload', 'time_field' => 'last_activity');
+        return ['database' => $database, 'collection' => $collection, 'id_field' => '_id', 'data_field' => 'payload', 'time_field' => 'last_activity'];
     }
 
     /**
@@ -75,5 +75,4 @@ class SessionManager extends \Illuminate\Support\Manager {
     {
         return 'mongodb';
     }
-
 }
