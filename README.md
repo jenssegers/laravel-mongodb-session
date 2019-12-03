@@ -13,8 +13,8 @@ Make sure you have [jenssegers\mongodb](https://github.com/jenssegers/Laravel-Mo
 Laravel   | Package
 :---------|:----------
  4.x.x    | 1.0.x
- 5.x.x    | 1.1.x
- 6.x.x    | 1.2.x
+ 5.x.x    | 1.2.x
+ 6.x.x    | 1.3.x
 
 
 
