@@ -1,6 +1,6 @@
 {
     "name": "jenssegers/mongodb-session",
-    "description": "A MongoDB session driver for Laravel 4",
+    "description": "A MongoDB session driver for Laravel 4, 5, and 6",
     "keywords": ["laravel","session","mongodb","mongo","driver"],
     "authors": [
         {
@@ -10,9 +10,9 @@
     ],
     "license" : "MIT",
     "require": {
-        "php": ">=5.3.0",
+        "php": ">=7.2",
         "jenssegers/mongodb": "*",
-        "illuminate/session": "~4.0|~5.0"
+        "illuminate/session": "~4.0|~5.0|~6.0"
     },
     "autoload": {
         "psr-0": {
