@@ -18,5 +18,12 @@
         "psr-0": {
             "Jenssegers\\Mongodb\\Session": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jenssegers\\Mongodb\\Session\\SessionServiceProvider"
+            ]
+        }
     }
 }
