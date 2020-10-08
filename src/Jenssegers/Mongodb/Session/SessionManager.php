@@ -1,9 +1,16 @@
-<?php namespace Jenssegers\Mongodb\Session;
+<?php
+
+namespace Jenssegers\Mongodb\Session;
 
 use Symfony\Component\HttpFoundation\Session\Storage\Handler\MongoDbSessionHandler;
 
 class SessionManager extends \Illuminate\Support\Manager
 {
+
+    public function __construct($app)
+    {
+        $this->app = $app;
+    }
     /**
      * Create an instance of the database session driver.
      *
