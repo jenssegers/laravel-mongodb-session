@@ -26,7 +26,7 @@ class SessionManager extends \Illuminate\Support\Manager
 
         $handler = new MongoDbSessionHandler($connection->getMongoClient(), $this->getMongoDBOptions($database, $collection));
 
-        $handler->open(null, 'mongodb');
+        $handler->open('', 'mongodb');
 
         return $handler;
     }
